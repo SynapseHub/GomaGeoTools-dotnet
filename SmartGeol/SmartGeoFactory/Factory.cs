@@ -139,20 +139,102 @@ namespace SmartGeoFactory
             if (obj is City)
             {
                 cmdSave = allcon.CreateCommand();
-                cmdSave.CommandText = @"insert into city(id,cityname)
-                    values(@id,@designation)";
-                IDataParameter paramId = cmdSave.CreateParameter();
-                paramId.ParameterName = "@id";
-                paramId.Value = ((City)obj).Idcity;
+                cmdSave.CommandText = @"insert into city(idcity,idzone,namecity,desccity,latcity,lngcity,altcity,cityurlimage) 
+                    values(@idcity,@idzone,@namecity,@desccity,@latcity,@lngcity,@altcity,@cityurlimage)";
+                IDataParameter paramIdcity = cmdSave.CreateParameter();
+                paramIdcity.ParameterName = "@idcity";
+                paramIdcity.Value = ((City)obj).Idcity;
+                IDataParameter paramIdzone = cmdSave.CreateParameter();
+                paramIdzone.ParameterName = "@idzone";
+                paramIdzone.Value = ((City)obj).Idzone;
                 IDataParameter paramName = cmdSave.CreateParameter();
-                paramName.ParameterName = "@cityname";
+                paramName.ParameterName = "@namecity";
                 paramName.Value = ((City)obj).Namecity;
+                IDataParameter paramDescCity = cmdSave.CreateParameter();
+                paramDescCity.ParameterName = "@desccity";
+                paramDescCity.Value = ((City)obj).Desccity;
+                IDataParameter paramLatCity = cmdSave.CreateParameter();
+                paramLatCity.ParameterName = "@latcity";
+                paramLatCity.Value = ((City)obj).Latcity;
+                IDataParameter paramLngCity = cmdSave.CreateParameter();
+                paramLngCity.ParameterName = "@lngcity";
+                paramLngCity.Value = ((City)obj).Lngcity;
+                IDataParameter paramCityUrlImage = cmdSave.CreateParameter();
+                paramCityUrlImage.ParameterName = "@cityurlimage";
+                paramCityUrlImage.Value = ((City)obj).Cityurlimage;
                 // il faut ajouter tout les attributs de la classe City
-                cmdSave.Parameters.Add(paramId);
+                cmdSave.Parameters.Add(paramIdcity);
+                cmdSave.Parameters.Add(paramIdzone);
                 cmdSave.Parameters.Add(paramName);
+                cmdSave.Parameters.Add(paramDescCity);
+                cmdSave.Parameters.Add(paramLatCity);
+                cmdSave.Parameters.Add(paramLngCity);
+                cmdSave.Parameters.Add(paramCityUrlImage);
             }
-			if(obj is sitenaturel){
+            if (obj is sitenaturelcs)
+            {
 				cmdSave=allcon.CreateCommand();
+                cmdSave.CommandText = @"insert into sitenaturel(idsite,idcity,title,type,area,sitedesc,latitude,longitude,attractourist,
+        largeur,longueur,security,visitorperan,site_url_image) values (@idsite,@idcity,@title,@type,@area,@sitedesc,@latitude,@longitude,@attractourist,
+        @largeur,@longueur,@security,@visitorperan,@site_url_image)";
+                IDataParameter paramIdSite = cmdSave.CreateParameter();
+                paramIdSite.ParameterName = "@idsite";
+                paramIdSite.Value = ((sitenaturelcs)obj).Idsite;
+                IDataParameter paramIdCity = cmdSave.CreateParameter();
+                paramIdCity.ParameterName = "@idcity";
+                paramIdCity.Value = ((sitenaturelcs)obj).Idcity;
+                IDataParameter paramTitle = cmdSave.CreateParameter();
+                paramTitle.ParameterName = "@title";
+                paramTitle.Value = ((sitenaturelcs)obj).Title;
+                IDataParameter paramType = cmdSave.CreateParameter();
+                paramType.ParameterName = "@type";
+                paramType.Value = ((sitenaturelcs)obj).Type;
+                IDataParameter paramArea = cmdSave.CreateParameter();
+                paramArea.ParameterName = "@area";
+                paramArea.Value = ((sitenaturelcs)obj).Area;
+                IDataParameter paramSitedesc = cmdSave.CreateParameter();
+                paramSitedesc.ParameterName = "@sitedesc";
+                paramSitedesc.Value = ((sitenaturelcs)obj).Sitedesc;
+                IDataParameter paramLatitude = cmdSave.CreateParameter();
+                paramLatitude.ParameterName = "@latitude";
+                paramLatitude.Value = ((sitenaturelcs)obj).Latitude;
+                IDataParameter paramLongitude = cmdSave.CreateParameter();
+                paramLongitude.ParameterName = "@longitude";
+                paramLongitude.Value = ((sitenaturelcs)obj).Longitude;
+                IDataParameter paramAttract = cmdSave.CreateParameter();
+                paramAttract.ParameterName = "@attractourist";
+                paramAttract.Value = ((sitenaturelcs)obj).Attractourist;
+                IDataParameter paramLargeur = cmdSave.CreateParameter();
+                paramLargeur.ParameterName = "@largeur";
+                paramLargeur.Value = ((sitenaturelcs)obj).Largeur;
+                IDataParameter paramLongueur = cmdSave.CreateParameter();
+                paramLongueur.ParameterName = "@longueur";
+                paramLongueur.Value = ((sitenaturelcs)obj).Longueur;
+                IDataParameter paramSecurity = cmdSave.CreateParameter();
+                paramSecurity.ParameterName = "@security";
+                paramSecurity.Value = ((sitenaturelcs)obj).Security;
+                IDataParameter paramVisitorperan = cmdSave.CreateParameter();
+                paramVisitorperan.ParameterName = "@visitorperan";
+                paramVisitorperan.Value = ((sitenaturelcs)obj).Visitorperan;
+                IDataParameter paramsiteurl = cmdSave.CreateParameter();
+                paramsiteurl.ParameterName = "@site_url_image";
+                paramsiteurl.Value = ((sitenaturelcs)obj).Site_url_image;
+
+                // il faut ajouter tout les attributs de la classe City
+                cmdSave.Parameters.Add(paramIdSite);
+                cmdSave.Parameters.Add(paramIdCity);
+                cmdSave.Parameters.Add(paramTitle);
+                cmdSave.Parameters.Add(paramType);
+                cmdSave.Parameters.Add(paramArea);
+                cmdSave.Parameters.Add(paramSitedesc);
+                cmdSave.Parameters.Add(paramLatitude);
+                cmdSave.Parameters.Add(paramLongitude);
+                cmdSave.Parameters.Add(paramAttract);
+                cmdSave.Parameters.Add(paramLargeur);
+                cmdSave.Parameters.Add(paramLongueur);
+                cmdSave.Parameters.Add(paramSecurity);
+                cmdSave.Parameters.Add(paramVisitorperan);
+                cmdSave.Parameters.Add(paramsiteurl);
 				
 			}
 
@@ -168,11 +250,30 @@ namespace SmartGeoFactory
 
         #endregion
 
+        #region Modification des donnees quelque soit la classe
 
+        /// <summary>
+        /// Permet de modifier des donnees dans la base de données quelque soit le type d'objet
+        /// </summary>
+        /// <param name="obj">Object</param>
+        internal void Modifier(object obj)
+        {
 
+        }
 
+        #endregion
 
+        #region Suppression des donnees quelque soit la classe
 
+        /// <summary>
+        /// Permet de supprimer des donnees dans la base de données quelque soit le type d'objet
+        /// </summary>
+        /// <param name="obj">Object</param>
+        internal void Supprimer(object obj)
+        {
+
+        }
+        #endregion
 
         // The End of the Class
     }
