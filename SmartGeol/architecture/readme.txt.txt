@@ -1,1 +1,0 @@
-this folder is just to help other developers to know more about the architecture of our application SmartGeoTools
