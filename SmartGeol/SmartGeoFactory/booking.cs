@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Smart_Geol
+namespace SmartGeoFactory
 {
-    class booking
+   public class booking
     {
         private int id;
         private int bookingid;

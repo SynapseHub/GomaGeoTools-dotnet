@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Smart_Geol
-{
-    class comments
+namespace SmartGeoFactory
+     public class comments
     {
         private int id;
         private int userid;

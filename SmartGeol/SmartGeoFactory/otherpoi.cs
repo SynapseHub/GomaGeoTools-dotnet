@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Smart_Geol
+namespace SmartGeoFactory
 {
-    class otherpoi
+    public class otherpoi
     {
         private int id;
         private int bookingid;
@@ -20,7 +20,7 @@ namespace Smart_Geol
         private int pointofinterestid;
         private int idsite;
 
-        public int Idsite
+        public  int Idsite
         {
             get { return idsite; }
             set { idsite = value; }

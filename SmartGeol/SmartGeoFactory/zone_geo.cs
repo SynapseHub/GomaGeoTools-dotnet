@@ -5,9 +5,9 @@ using System.Text;
 using System.IO;
 using System.Text;
 
-namespace Smart_Geol
+namespace SmartGeoFactory
 {
-    class zone_geo
+   public  class zone_geo
     {
         private int id;
         private int zoneGeoId;

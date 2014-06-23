@@ -1,0 +1,1 @@
+C:\Users\salomonK\Documents\GomaGeoTools-dotnet\SmartGeol\SmartGeoFactory\obj\Debug\SmartGeoFactory.csprojResolveAssemblyReference.cache

@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Smart_Geol
+namespace SmartGeoFactory
 {
-    class restaurant
+    public class restaurant
     {
         private int id;
         private int pointofinterestid;
         private int idcity;
         private string title;
         private string type;
-        private string url;
         private string classification;
         private float latitude;
         private float longitude;
